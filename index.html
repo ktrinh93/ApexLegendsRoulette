@@ -18,10 +18,6 @@
             margin-top: 10px;
         }
 
-        h6 {
-            
-        }
-
     </style>
 </head>
 <body>
@@ -33,8 +29,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title" id="location"></h5>
-                        <h6 class="card-subtitle mb-2 text-muted" id="loot-rarity"></h6>
-                        <a href="#" class="card-link" id="button">Random Location</a>
+                        <h6 class="card-subtitle mb-2" id="loot-rarity"></h6>
+                        <br>
+                        <button type="button" class="btn btn-dark" id="button">Random Location</button>
                     </div>
                 </div>
             </div>
@@ -51,10 +48,10 @@
             this.color = null;
 
             if(this.rarity == "High") {
-                this.color = "purple";
+                this.color = "#C44EF8";
             }
             else if(this.rarity == "Mid") {
-                this.color = "blue";
+                this.color = "#60C2F5";
             }
             else {
                 this.color = "gray";
@@ -79,6 +76,20 @@
         var repulsor = new DropLocation("Repulsor", "High");
         var watertreatment = new DropLocation("Water Treatment", "High");
 
+        // apexmap.io
+        var artillerytunnel = new DropLocation("Artillery Tunnel", "Low");
+        var artilleryunderpass = new DropLocation("Artillery Underpass", "Low");
+        var watchtowernorth = new DropLocation("Watchtower North", "High");
+        var farm = new DropLocation("The Farm", "Mid");
+        var riversend = new DropLocation("River's End", "Mid");
+        var westsettlement = new DropLocation("West Settlement", "Mid");
+        var southsettlement = new DropLocation("South Settlement", "Mid");
+        var eastsettlement = new DropLocation("East Settlement", "Low");
+        var highdesert = new DropLocation("High Desert", "Low");
+        var shatteredforest = new DropLocation("Shattered Forest", "Low");
+        var landingpad = new DropLocation("Landing Pad", "Low");
+        var watchtowersouth = new DropLocation("Watchtower South", "High");
+
         locations.push(artillery);
         locations.push(slumlakes);
         locations.push(relay);
@@ -97,13 +108,30 @@
         locations.push(repulsor);
         locations.push(watertreatment)
 
+        locations.push(artillerytunnel);
+        locations.push(artilleryunderpass);
+        locations.push(watchtowernorth);
+        locations.push(farm);
+        locations.push(riversend);
+        locations.push(westsettlement);
+        locations.push(southsettlement);
+        locations.push(eastsettlement);
+        locations.push(highdesert);
+        locations.push(shatteredforest);
+        locations.push(landingpad);
+        locations.push(watchtowersouth);
+
         $(document).ready(function() {
             $("#button").on("click", function() {
                 var location = locations[Math.floor(Math.random()*locations.length)];
+                
                 $("#location").text(location.name);
-                var colorStyle = "color: " + location.color;
-                $("#loot-rarity").attr("style", colorStyle);
-                $("#loot-rarity").text(location.rarity + " Tier Loot");                
+                
+                var rarity = location.rarity;
+                var style = "color: " + location.color;
+
+                $("#loot-rarity").attr("style", style);
+                $("#loot-rarity").text(rarity + " Tier Loot");
             });
         });
 
