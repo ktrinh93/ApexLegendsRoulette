@@ -1,0 +1,114 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Apex Legends Roulette</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+
+        .container {
+            margin-top: 10px;
+        }
+
+        h6 {
+            
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="location"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted" id="loot-rarity"></h6>
+                        <a href="#" class="card-link" id="button">Random Location</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var locations = [];
+
+        function DropLocation(name, rarity) {
+            this.name = name;
+            this.rarity = rarity;
+            this.color = null;
+
+            if(this.rarity == "High") {
+                this.color = "purple";
+            }
+            else if(this.rarity == "Mid") {
+                this.color = "blue";
+            }
+            else {
+                this.color = "gray";
+            }
+        }
+
+        var artillery = new DropLocation("Artillery", "High");
+        var slumlakes = new DropLocation("Slum Lakes", "Mid");
+        var relay = new DropLocation("Relay", "High");
+        var runoff = new DropLocation("Runoff", "High");
+        var pit = new DropLocation("The Pit", "High");
+        var cascades = new DropLocation("Cascades", "Mid");
+        var wetlands = new DropLocation("Wetlands", "Mid");
+        var airbase = new DropLocation("Air Base", "High");
+        var bunker = new DropLocation("Bunker", "High");
+        var swamps = new DropLocation("Swamps", "High");
+        var bridges = new DropLocation("Bridges", "Mid");
+        var hydrodam = new DropLocation("Hydro Dam", "Low");
+        var market = new DropLocation("Market", "Low");
+        var skulltown = new DropLocation("Skull Town", "Mid");
+        var thunderdome = new DropLocation("Thunderdome", "High");
+        var repulsor = new DropLocation("Repulsor", "High");
+        var watertreatment = new DropLocation("Water Treatment", "High");
+
+        locations.push(artillery);
+        locations.push(slumlakes);
+        locations.push(relay);
+        locations.push(runoff);
+        locations.push(pit);
+        locations.push(cascades);
+        locations.push(wetlands);
+        locations.push(airbase);
+        locations.push(bunker);
+        locations.push(swamps);
+        locations.push(bridges);
+        locations.push(hydrodam);
+        locations.push(market);
+        locations.push(skulltown);
+        locations.push(thunderdome);
+        locations.push(repulsor);
+        locations.push(watertreatment)
+
+        $(document).ready(function() {
+            $("#button").on("click", function() {
+                var location = locations[Math.floor(Math.random()*locations.length)];
+                $("#location").text(location.name);
+                var colorStyle = "color: " + location.color;
+                $("#loot-rarity").attr("style", colorStyle);
+                $("#loot-rarity").text(location.rarity + " Tier Loot");                
+            });
+        });
+
+
+    </script>
+    
+</body>
+</html>
