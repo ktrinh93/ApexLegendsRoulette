@@ -67,6 +67,7 @@ function generateLocations() {
     var watchtowersouth = new DropLocation("Watchtower South", "High");
 
     var supplyship = new DropLocation("Supply Ship", "High");
+    var hotzone = new DropLocation("Hot Zone", "High");
     
     locations.push(artillery);
     locations.push(slumlakes);
@@ -100,4 +101,5 @@ function generateLocations() {
     locations.push(watchtowersouth);
 
     locations.push(supplyship);
+    locations.push(hotzone);
 }
