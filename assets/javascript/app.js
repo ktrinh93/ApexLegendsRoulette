@@ -24,7 +24,7 @@ $(document).ready(function() {
         circleID = circleID.replace("'", "");
 
         lastCircleID = circleID;
-        var imgURL = "\./assets/images/" + circleID + ".png";
+        var imgURL = "assets/images/" + circleID + ".png";
 
         $("#locations").attr("src", imgURL);
     });
