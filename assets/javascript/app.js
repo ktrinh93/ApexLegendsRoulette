@@ -1,10 +1,14 @@
 var locations = [];
 
+var lastCircleID = "";
+
 $(document).ready(function() {
 
     generateLocations();
 
     $("#button").on("click", function() {
+        $(lastCircleID).attr("style", "display: none");
+
         var location = locations[Math.floor(Math.random()*locations.length)];
         
         $("#location").text(location.name);
@@ -14,6 +18,15 @@ $(document).ready(function() {
 
         $("#loot-rarity").attr("style", style);
         $("#loot-rarity").text(rarity + " Tier Loot");
+        
+        var circleID = location.name.toLowerCase();
+        circleID = circleID.replace(" ", "-");
+        circleID = circleID.replace("'", "");
+
+        lastCircleID = circleID;
+        var imgURL = "/assets/images/" + circleID + ".png";
+
+        $("#locations").attr("src", imgURL);
     });
 });
 

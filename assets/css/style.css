@@ -6,3 +6,23 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+#map {
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+#locations {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
