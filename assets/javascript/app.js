@@ -1,13 +1,10 @@
 var locations = [];
 
-var lastCircleID = "";
-
 $(document).ready(function() {
 
     generateLocations();
 
     $("#button").on("click", function() {
-        $(lastCircleID).attr("style", "display: none");
 
         var location = locations[Math.floor(Math.random()*locations.length)];
         
@@ -23,7 +20,6 @@ $(document).ready(function() {
         circleID = circleID.replace(" ", "-");
         circleID = circleID.replace("'", "");
 
-        lastCircleID = circleID;
         var imgURL = "assets/images/" + circleID + ".png";
 
         $("#locations").attr("src", imgURL);
