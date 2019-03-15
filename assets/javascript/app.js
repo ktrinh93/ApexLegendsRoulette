@@ -29,6 +29,9 @@ $(document).ready(function() {
 
 function pickDropLocation() {
     var location = locations[Math.floor(Math.random()*locations.length)];
+    while(location == lastLocation) {
+        location = locations[Math.floor(Math.random()*locations.length)];
+    }
         
     $("#location").text(location.name);
     
@@ -45,13 +48,21 @@ function pickDropLocation() {
     var imgURL = "assets/images/" + circleID + ".png";
 
     $("#locations").attr("src", imgURL);
+
+    lastLocation = location;
 }
 
 function pickLegend() {
     var legend = legends[Math.floor(Math.random()*legends.length)];
+    while(legend == lastLegend) {
+        legend = legends[Math.floor(Math.random()*legends.length)];
+    }
+
     $("#legend-name").text(legend.name);
     $("#legend-class").text(legend.lClass);
     $("#legend-portrait").attr("src", "assets/images/legends/" + legend.name.toLowerCase() + ".png");
+
+    lastLegend = legend;
 }
 
 // object constructor for drop locations
