@@ -26,3 +26,14 @@ body {
     left: 0px;
     z-index: 2;
 }
+
+#legend-portrait {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -60px;
+}
+
+#reroll-button {
+    width: 100%;
+}

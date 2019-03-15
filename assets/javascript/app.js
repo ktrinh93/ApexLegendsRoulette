@@ -1,31 +1,60 @@
 var locations = [];
+var legends = [];
+
+var lastLocation = "";
+var lastLegend = "";
 
 $(document).ready(function() {
 
-    generateLocations();
+    createLocations();
+    createLegends();
 
-    $("#button").on("click", function() {
+    pickDropLocation();
+    pickLegend();
 
-        var location = locations[Math.floor(Math.random()*locations.length)];
-        
-        $("#location").text(location.name);
-        
-        var rarity = location.rarity;
-        var style = "color: " + location.color;
-
-        $("#loot-rarity").attr("style", style);
-        $("#loot-rarity").text(rarity + " Tier Loot");
-        
-        var circleID = location.name.toLowerCase();
-        circleID = circleID.replace(" ", "-");
-        circleID = circleID.replace("'", "");
-
-        var imgURL = "assets/images/" + circleID + ".png";
-
-        $("#locations").attr("src", imgURL);
+    $("#location-button").on("click", function() {
+        pickDropLocation();
     });
+
+    $("#legend-button").on("click", function() {
+        pickLegend();
+    });
+
+    $("#reroll-button").on("click", function() {
+        pickDropLocation();
+        pickLegend();
+    })
+
 });
 
+function pickDropLocation() {
+    var location = locations[Math.floor(Math.random()*locations.length)];
+        
+    $("#location").text(location.name);
+    
+    var rarity = location.rarity;
+    var style = "color: " + location.color;
+
+    $("#loot-rarity").attr("style", style);
+    $("#loot-rarity").text(rarity + " Tier Loot");
+    
+    var circleID = location.name.toLowerCase();
+    circleID = circleID.replace(" ", "-");
+    circleID = circleID.replace("'", "");
+
+    var imgURL = "assets/images/" + circleID + ".png";
+
+    $("#locations").attr("src", imgURL);
+}
+
+function pickLegend() {
+    var legend = legends[Math.floor(Math.random()*legends.length)];
+    $("#legend-name").text(legend.name);
+    $("#legend-class").text(legend.lClass);
+    $("#legend-portrait").attr("src", "assets/images/legends/" + legend.name.toLowerCase() + ".png");
+}
+
+// object constructor for drop locations
 function DropLocation(name, rarity) {
     this.name = name;
     this.rarity = rarity;
@@ -42,7 +71,8 @@ function DropLocation(name, rarity) {
     }
 }
 
-function generateLocations() {
+// function to create drop location objects and push them to array
+function createLocations() {
     var artillery = new DropLocation("Artillery", "High");
     var slumlakes = new DropLocation("Slum Lakes", "Mid");
     var relay = new DropLocation("Relay", "High");
@@ -111,4 +141,31 @@ function generateLocations() {
 
     locations.push(supplyship);
     locations.push(hotzone);
+}
+
+// object constructor for legends
+function Legend(name, lClass) {
+    this.name = name;
+    this.lClass = lClass;
+}
+
+// function to create legend objects and push them to array
+function createLegends() {
+    var pathfinder = new Legend("Pathfinder", "Support");
+    var lifeline = new Legend("Lifeline", "Support");
+    var bloodhound = new Legend("Bloodhound", "Tracker");
+    var gibraltar = new Legend("Gibraltar", "Defense");
+    var wraith = new Legend("Wraith", "Offense");
+    var bangalore = new Legend("Bangalore", "Offense");
+    var caustic = new Legend("Caustic", "Defense");
+    var mirage = new Legend("Mirage", "Offense");
+    
+    legends.push(pathfinder);
+    legends.push(lifeline);
+    legends.push(bloodhound);
+    legends.push(gibraltar);
+    legends.push(wraith);
+    legends.push(bangalore);
+    legends.push(caustic);
+    legends.push(mirage);
 }
