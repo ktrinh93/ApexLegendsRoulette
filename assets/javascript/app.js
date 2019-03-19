@@ -23,7 +23,7 @@ $(document).ready(function() {
     $("#reroll-button").on("click", function() {
         pickDropLocation();
         pickLegend();
-    })
+    });
 
 });
 
@@ -170,6 +170,7 @@ function createLegends() {
     var bangalore = new Legend("Bangalore", "Offense");
     var caustic = new Legend("Caustic", "Defense");
     var mirage = new Legend("Mirage", "Offense");
+    var octane = new Legend("Octane", "Offense");
     
     legends.push(pathfinder);
     legends.push(lifeline);
@@ -179,4 +180,5 @@ function createLegends() {
     legends.push(bangalore);
     legends.push(caustic);
     legends.push(mirage);
+    legends.push(octane);
 }
