@@ -4,4 +4,4 @@ For gamers who enjoy playing Apex Legends, but can't decide where to land or who
 Users will be given a map of King's Canyon (world map) with a randomly selected location circled.
 They will also be given a randomly selected legend to play.
 
-Deployed at: ktrinh93.github.io/ApexLegendsRoulette
+Deployed at: https://ktrinh93.github.io/ApexLegendsRoulette/
